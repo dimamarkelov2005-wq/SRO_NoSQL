@@ -1,0 +1,4 @@
+cassandra-driver==3.29.2
+python-dotenv==1.0.1
+pytest==8.3.3
+uuid6==2024.7.10
