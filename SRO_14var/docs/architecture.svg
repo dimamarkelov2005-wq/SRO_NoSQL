@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520">
+  <rect width="900" height="520" fill="#f8f9fa"/>
+  <text x="450" y="30" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold">Журнал событий веб-сервиса — Архитектура (Variant 14)</text>
+
+  <!-- Producers -->
+  <rect x="40" y="60" width="140" height="50" rx="6" fill="#4e79a7"/>
+  <text x="110" y="90" text-anchor="middle" fill="white" font-family="Arial" font-size="12">auth-service</text>
+  <rect x="200" y="60" width="140" height="50" rx="6" fill="#4e79a7"/>
+  <text x="270" y="90" text-anchor="middle" fill="white" font-family="Arial" font-size="12">payment-service</text>
+  <rect x="360" y="60" width="140" height="50" rx="6" fill="#4e79a7"/>
+  <text x="430" y="90" text-anchor="middle" fill="white" font-family="Arial" font-size="12">order-service</text>
+  <rect x="520" y="60" width="140" height="50" rx="6" fill="#e15759"/>
+  <text x="590" y="90" text-anchor="middle" fill="white" font-family="Arial" font-size="12">api-gateway (HV)</text>
+  <rect x="680" y="60" width="140" height="50" rx="6" fill="#4e79a7"/>
+  <text x="750" y="90" text-anchor="middle" fill="white" font-family="Arial" font-size="12">notification-svc</text>
+
+  <!-- Arrow down -->
+  <line x1="450" y1="110" x2="450" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#333"/></marker></defs>
+
+  <!-- Producer box -->
+  <rect x="300" y="155" width="300" height="45" rx="6" fill="#59a14f"/>
+  <text x="450" y="183" text-anchor="middle" fill="white" font-family="Arial" font-size="13">Event Log Producer (Python repository)</text>
+
+  <line x1="450" y1="200" x2="450" y2="240" stroke="#333" stroke-width="2"/>
+
+  <!-- Cassandra box -->
+  <rect x="120" y="245" width="660" height="220" rx="10" fill="#f28e2b" fill-opacity="0.15" stroke="#f28e2b" stroke-width="2"/>
+  <text x="450" y="270" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">Apache Cassandra</text>
+
+  <rect x="140" y="290" width="200" height="70" rx="5" fill="#f28e2b"/>
+  <text x="240" y="315" text-anchor="middle" fill="white" font-family="Arial" font-size="11">events_by_service_day</text>
+  <text x="240" y="335" text-anchor="middle" fill="white" font-family="Arial" font-size="10">PK ((svc, day), time, id)</text>
+
+  <rect x="360" y="290" width="200" height="70" rx="5" fill="#e15759"/>
+  <text x="460" y="315" text-anchor="middle" fill="white" font-family="Arial" font-size="11">events_by_service_hour</text>
+  <text x="460" y="335" text-anchor="middle" fill="white" font-family="Arial" font-size="10">PK ((svc, hour), time, id)</text>
+
+  <rect x="580" y="290" width="180" height="70" rx="5" fill="#76b7b2"/>
+  <text x="670" y="315" text-anchor="middle" fill="white" font-family="Arial" font-size="11">events_by_level</text>
+  <text x="670" y="335" text-anchor="middle" fill="white" font-family="Arial" font-size="10">PK ((svc, day, level), …)</text>
+
+  <rect x="300" y="380" width="300" height="55" rx="5" fill="#b07aa1"/>
+  <text x="450" y="405" text-anchor="middle" fill="white" font-family="Arial" font-size="12">services (metadata)</text>
+  <text x="450" y="422" text-anchor="middle" fill="white" font-family="Arial" font-size="10">PK (service_name)</text>
+
+  <!-- Query layer -->
+  <line x1="450" y1="465" x2="450" y2="485" stroke="#333" stroke-width="2"/>
+  <rect x="300" y="485" width="300" height="30" rx="5" fill="#59a14f"/>
+  <text x="450" y="505" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Query / Demo layer</text>
+</svg>
